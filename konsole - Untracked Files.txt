@@ -1,0 +1,139 @@
+student@student-VirtualBox:~/Workspace/wine_review$ git init
+Reinitialized existing Git repository in /home/student/Workspace/wine_review/.git/
+student@student-VirtualBox:~/Workspace/wine_review$ git remote add origin https://github.com/rcolema9/wine_review.git
+fatal: remote origin already exists.
+student@student-VirtualBox:~/Workspace/wine_review$ git add .
+fatal: LF would be replaced by CRLF in .gitignore
+student@student-VirtualBox:~/Workspace/wine_review$ git commit -m "initial check-in"
+# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#       .gitignore
+#       Gemfile
+#       Gemfile.lock
+#       README.rdoc
+#       Rakefile
+#       app/
+#       bin/
+#       config.ru
+#       config/
+#       db/
+#       lib/
+#       log/
+#       public/
+#       test/
+#       vendor/
+nothing added to commit but untracked files present (use "git add" to track)
+student@student-VirtualBox:~/Workspace/wine_review$ git pull origin master
+From https://github.com/rcolema9/wine_review
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+student@student-VirtualBox:~/Workspace/wine_review$ git push origin master
+Username for 'https://github.com': rcolema9
+Password for 'https://rcolema9@github.com': 
+Everything up-to-date
+student@student-VirtualBox:~/Workspace/wine_review$ rails g model wine name:string year:integer winery:string country:string varietal:string
+      invoke  active_record
+      create    db/migrate/20140406082217_create_wines.rb
+      create    app/models/wine.rb
+      invoke    test_unit
+      create      test/models/wine_test.rb
+      create      test/fixtures/wines.yml
+student@student-VirtualBox:~/Workspace/wine_review$ rake db:create db:migrate
+db/development.sqlite3 already exists
+==  CreateWines: migrating ====================================================
+-- create_table(:wines)
+   -> 0.0012s
+==  CreateWines: migrated (0.0013s) ===========================================
+
+student@student-VirtualBox:~/Workspace/wine_review$ rake db:seed
+student@student-VirtualBox:~/Workspace/wine_review$ rails console
+Loading development environment (Rails 4.0.2)
+irb(main):001:0> Wine
+=> Wine(no database connection)
+irb(main):002:0> ls
+NameError: undefined local variable or method `ls' for main:Object
+        from (irb):2
+        from /home/student/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/railties-4.0.2/lib/rails/commands/console.rb:90:in `start'
+        from /home/student/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/railties-4.0.2/lib/rails/commands/console.rb:9:in `start'
+        from /home/student/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/railties-4.0.2/lib/rails/commands.rb:62:in `<top (required)>'
+        from bin/rails:4:in `require'
+        from bin/rails:4:in `<main>'
+irb(main):003:0> exit
+student@student-VirtualBox:~/Workspace/wine_review$ cd apps
+bash: cd: apps: No such file or directory
+student@student-VirtualBox:~/Workspace/wine_review$ cd app
+student@student-VirtualBox:~/Workspace/wine_review/app$ cd views
+student@student-VirtualBox:~/Workspace/wine_review/app/views$ ls
+layouts
+student@student-VirtualBox:~/Workspace/wine_review/app/views$ mkdir wines
+student@student-VirtualBox:~/Workspace/wine_review/app/views$ ls
+layouts  wines
+student@student-VirtualBox:~/Workspace/wine_review/app/views$ cd ..
+student@student-VirtualBox:~/Workspace/wine_review/app$ cd ..
+student@student-VirtualBox:~/Workspace/wine_review$ git status
+# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#       .gitignore
+#       Gemfile
+#       Gemfile.lock
+#       README.rdoc
+#       Rakefile
+#       app/
+#       bin/
+#       config.ru
+#       config/
+#       db/
+#       lib/
+#       log/
+#       public/
+#       test/
+#       vendor/
+nothing added to commit but untracked files present (use "git add" to track)
+student@student-VirtualBox:~/Workspace/wine_review$ git add .
+fatal: LF would be replaced by CRLF in .gitignore
+student@student-VirtualBox:~/Workspace/wine_review$ git commit -m "wine review view"
+# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#       .gitignore
+#       Gemfile
+#       Gemfile.lock
+#       README.rdoc
+#       Rakefile
+#       app/
+#       bin/
+#       config.ru
+#       config/
+#       db/
+#       lib/
+#       log/
+#       public/
+#       test/
+#       vendor/
+nothing added to commit but untracked files present (use "git add" to track)
+student@student-VirtualBox:~/Workspace/wine_review$ git push
+Username for 'https://github.com': rcolema9
+Password for 'https://rcolema9@github.com': 
+Everything up-to-date
+student@student-VirtualBox:~/Workspace/wine_review$ rails console
+Loading development environment (Rails 4.0.2)
+irb(main):001:0> Wine
+=> Wine(no database connection)
+irb(main):002:0> exit
+student@student-VirtualBox:~/Workspace/wine_review$ rails g model wine name:string year:integer winery:string country:string varietal:string
+      invoke  active_record
+Another migration is already named create_wines: /home/student/Workspace/wine_review/db/migrate/20140406082217_create_wines.rb. Use --force to remove the old migration file and replace it.
+student@student-VirtualBox:~/Workspace/wine_review$ --force
+--force: command not found
+student@student-VirtualBox:~/Workspace/wine_review$ rake db:create db:migrate
+db/development.sqlite3 already exists
+db/test.sqlite3 already exists
+student@student-VirtualBox:~/Workspace/wine_review$ rake routes
+Prefix Verb URI Pattern          Controller#Action
+wines GET /wines/:id(.:format) wines#show
+student@student-VirtualBox:~/Workspace/wine_review$ 

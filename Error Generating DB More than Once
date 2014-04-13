@@ -1,0 +1,5 @@
+1.  Generating DB after it already exists and rake db:create and db:migrate -
+
+student@student-VirtualBox:~/Workspace/wine_review$ rails g model wine name:string year:integer winery:string country:string varietal:string
+      invoke  active_record
+Another migration is already named create_wines: /home/student/Workspace/wine_review/db/migrate/20140406082217_create_wines.rb. Use --force to remove the old migration file and replace it.
