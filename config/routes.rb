@@ -1,5 +1,10 @@
 WineReview::Application.routes.draw do
-  resources :wines
+  root 'wines#index'
+  resources :wines do
+    get 'page/:page', :action => :index, :on => :collection
+  end
+  
+
   #Above replaced the following routes in Lab 9 - Resource Routes
   #get "/wines" => "wines#index", as: 'wines'
   #get "/wines/new" => "wines#new", as: 'new_wine'

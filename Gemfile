@@ -1,5 +1,15 @@
 source 'https://rubygems.org'
 
+# Twitter bootstrap gem include
+gem "twitter-bootstrap-rails"
+
+# bootstrap-sass for assets
+gem 'bootstrap-sass', '~> 3.1.1'
+
+# kaminari gems for pagination
+gem 'kaminari'
+gem 'kaminari-bootstrap', '~> 3.0.1'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 

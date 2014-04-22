@@ -1,10 +1,20 @@
+<% content_for :name, @wine.name %>
+
+<!--
+Removed the following from class 10, lab 5, Applying Layouts
+<%= render 'shared/flashes' %>
+-->
+
 <article class="wine">
   <header>
   <h2><%= @wine.name %></h2>
   </header>
   <p><label>Year:  </label><%= @wine.year %></p>
-  <!-- Removed thousands comma delimiter "number_with_delimiter(@wine.year)"-->
-  <!--number_with_delimiter(@wine.year)-->
+
+  <!-- 
+  Removed thousands comma delimiter "number_with_delimiter(@wine.year)"
+  number_with_delimiter(@wine.year)
+  -->
 
   <p><label>Winery:  </label><%= @wine.winery %></p>
   <p><label>Country:  </label><%= @wine.country %></p>

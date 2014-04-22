@@ -4,7 +4,11 @@ class WinesController < ApplicationController
 
   def index
     @available_at = Time.now
-    @wines = Wine.all
+    @wines = Wine.order(:name).page(params[:page])
+    
+    #Replaced the @wines statement below with with @wines statement above in Class 10, Lab 7 - Pagination
+    #@wines = Wine.all
+
     # Previously in Class 8 labs was an array
     #@wines = ["Beringer Chardonnay", "Veramar Rooster Red", "Mondavi Cabernet Sauvignon", "Kendall Jackson Sauvignon", "Luc Pirlet Merlot", "Mallee Point Shiraz"]
    end
@@ -20,8 +24,14 @@ class WinesController < ApplicationController
 
   def create
   	@wine = Wine.new(wine_params)
-  	@wine.save
-  	redirect_to @wine
+  	#Removed the following to show validation errors (class 10)
+  	#@wine.save
+  	#redirect_to @wine
+  	if @wine.save
+  	  redirect_to @wine, notice: "#{@wine.name} was created!"
+  	else
+  	  render :new
+  	end
   end
 
   def edit
@@ -32,8 +42,15 @@ class WinesController < ApplicationController
   def update
     #Removed when adding "Drying Out" code
     #@wine = Wine.find(params[:id])
-    @wine.update(wine_params)
-    redirect_to @wine
+    
+    #Removed to show validation error (class 10)
+    #@wine.update(wine_params)
+    #redirect_to @wine
+    if @wine.update(wine_params)
+      redirect_to @wine, notice: "#{@wine.name} was updated!"
+    else
+      render :new
+    end
   end
 
   def destroy
