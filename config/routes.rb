@@ -1,8 +1,12 @@
 WineReview::Application.routes.draw do
-  root 'wines#index'
+
+  resources :log_entries
+
   resources :wines do
+    resources :log_entries
     get 'page/:page', :action => :index, :on => :collection
   end
+  root 'wines#index'
   
 
   #Above replaced the following routes in Lab 9 - Resource Routes

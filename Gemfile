@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Add powerpack for average and other useful methods
+gem 'powerpack'
+
 # Twitter bootstrap gem include
 gem "twitter-bootstrap-rails"
 

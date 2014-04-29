@@ -4,9 +4,14 @@
 <ol>
 <% @wines.each do |wine| %>
 
-  <!-- show the name, winery and varietal for each wine -->
+  <li>
+  	<%= link_to(wine.name, wine) %> from <%= wine.winery %> winery with <%= wine.varietal %> varietal
+    <%= format_average_rating(wine) %>
+    <% if wine.log_entries.any? %>
+     (out of <%= pluralize(wine.log_entries.size, 'log_entry') %>)
+    <% end %>
+  </li>
 
-  <li><%= link_to(wine.name, wine) %> from <%= wine.winery %> winery with <%= wine.varietal %> varietal</li>
 <% end %>
 </ol>
 <%= paginate @wines %>
