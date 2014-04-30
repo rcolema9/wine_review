@@ -9,17 +9,17 @@ Removed the following from class 10, lab 5, Applying Layouts
   <header>
   <h2><%= @wine.name %></h2>
   </header>
-  <p><label>Year:  </label><%= @wine.year %></p>
+  <p><label>Year:</label>  <%= @wine.year %></p>
 
   <!-- 
   Removed thousands comma delimiter "number_with_delimiter(@wine.year)"
   number_with_delimiter(@wine.year)
   -->
 
-  <p><label>Winery:  </label><%= @wine.winery %></p>
-  <p><label>Country:  </label><%= @wine.country %></p>
-  <p><label>Varietal:  </label><%= @wine.varietal %></p>
-  <p><label>Average Log Entry:</label> <%= format_average_rating(@wine) %></p>
+  <p><label>Winery:</label>  <%= @wine.winery %></p>
+  <p><label>Country:</label>  <%= @wine.country %></p>
+  <p><label>Varietal:  </label>  <%= @wine.varietal %></p>
+  <p><label>Average Log Entry:</label>  <%= format_average_rating(@wine) %></p>
  </article>
  
  <%= link_to 'All Wines', wines_path %>
